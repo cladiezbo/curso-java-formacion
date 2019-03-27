@@ -17,7 +17,7 @@ import ejercicio01negocio.Negocio;
 
 public class MainMap {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Aula aula = new Aula("03",true, true);
 		Aula aula1 = new Aula("05",true, false);
@@ -45,7 +45,7 @@ public class MainMap {
 		aula1.setPuestos(puestosAula1);
 		//aula1.setProfesor(profesor1);
 		
-		Negocio negocio = new Negocio (new MapDaoAula(new HashMap<String,Aula>()));
+		Negocio negocio = new Negocio (new MapDaoAula());
 		negocio.nuevaAula(aula);
 		negocio.nuevaAula(aula1);
 		negocio.asignarAlumnoAlAula(estudianteC, aula.getNombre());

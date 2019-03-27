@@ -20,6 +20,10 @@ public class Negocio {
 		super();
 		this.aulaDao = aulaDao;
 	}
+	public Negocio() {
+		super();
+		this.aulaDao = aulaDao;
+	}
 	
 	public void nuevaAulaVarias(Collection<Aula> aulas) {
 		for (Aula aula : aulas) {
@@ -61,7 +65,7 @@ public class Negocio {
 		return profesoresCollection;
 		
 	}
-	public void asignarAlumnoAlAula(Estudiante estudiante,String numeroDeAula) {
+	public void asignarAlumnoAlAula(Estudiante estudiante,String numeroDeAula) throws Exception {
 		Aula aula = aulaDao.getAula(numeroDeAula);
 		Collection <Puesto> puestosCollection = aula.getPuestos();
 		Iterator<Puesto> iterator = puestosCollection.iterator();
@@ -75,7 +79,7 @@ public class Negocio {
 			}
 		}
 		if(!asignado)
-			System.out.println("No existe espacio en dicha aula para agregar a otro estudiante");
+			throw new Exception("No existe espacio para agregar a otro estudiante");
 		
 		
 	}

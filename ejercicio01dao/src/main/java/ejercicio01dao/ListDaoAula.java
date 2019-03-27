@@ -12,9 +12,9 @@ public class ListDaoAula implements IDaoAula {
 	
 	
 
-	public ListDaoAula(List<Aula> listaAula) {
+	public ListDaoAula() {
 		super();
-		this.listaAula = listaAula;
+		this.listaAula = new ArrayList<Aula> ();
 	}
 
 	public void crearAula(Aula aula) {

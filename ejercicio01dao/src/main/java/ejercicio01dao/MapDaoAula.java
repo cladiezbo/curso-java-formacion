@@ -8,13 +8,13 @@ import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class MapDaoAula implements IDaoAula {
 	
-	private Map<String,Aula> mapAula = new HashMap<String, Aula>();
+	private Map<String,Aula> mapAula; 
 	
 	
 
-	public MapDaoAula(Map<String, Aula> mapAula) {
+	public MapDaoAula() {
 		super();
-		this.mapAula = mapAula;
+		this.mapAula = new HashMap<String, Aula>();;
 	}
 
 	public void crearAula(Aula aula) {
