@@ -1,20 +1,33 @@
 package ejercicio01dao;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
-import com.curso.java.oo.ejercicio01oo.model.Aula;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+import com.curso.java.oo.ejercicio01oo.model.Aula;
+@Repository
 public class MapDaoAula implements IDaoAula {
 	
+	@Autowired
+	@Qualifier("hashMap")
 	private Map<String,Aula> mapAula; 
 	
 	
 
 	public MapDaoAula() {
 		super();
-		this.mapAula = new HashMap<String, Aula>();;
+		
+	}
+
+	public Map<String, Aula> getMapAula() {
+		return mapAula;
+	}
+
+	public void setMapAula(Map<String, Aula> mapAula) {
+		this.mapAula = mapAula;
 	}
 
 	public void crearAula(Aula aula) {

@@ -2,8 +2,10 @@ package ejercicio01dao;
 
 import java.util.Collection;
 
-import com.curso.java.oo.ejercicio01oo.model.Aula;
+import org.springframework.stereotype.Repository;
 
+import com.curso.java.oo.ejercicio01oo.model.Aula;
+@Repository
 public interface IDaoAula {
 	
 	 void crearAula(Aula aula);

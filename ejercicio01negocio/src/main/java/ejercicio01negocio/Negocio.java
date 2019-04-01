@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Estudiante;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
@@ -12,8 +16,12 @@ import com.curso.java.oo.ejercicio01oo.model.Puesto;
 
 import ejercicio01dao.IDaoAula;
 
+
+@Service
 public class Negocio {
 
+	@Autowired
+	@Qualifier("miDao")
 	private IDaoAula aulaDao;
 
 	public Negocio(IDaoAula aulaDao) {
@@ -22,7 +30,7 @@ public class Negocio {
 	}
 	public Negocio() {
 		super();
-		this.aulaDao = aulaDao;
+		
 	}
 	
 	public void nuevaAulaVarias(Collection<Aula> aulas) {
@@ -31,6 +39,12 @@ public class Negocio {
 		}
 	}
 	
+	public IDaoAula getAulaDao() {
+		return aulaDao;
+	}
+	public void setAulaDao(IDaoAula aulaDao) {
+		this.aulaDao = aulaDao;
+	}
 	public void nuevaAula(Aula aula) {
 			aulaDao.crearAula(aula); 
 		

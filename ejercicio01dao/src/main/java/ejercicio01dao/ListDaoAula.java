@@ -1,20 +1,34 @@
 package ejercicio01dao;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
+@Repository("miDao")
 public class ListDaoAula implements IDaoAula {
 	
+	@Autowired
+	@Qualifier("arrayList")
 	private List<Aula> listaAula;
 	
 	
 
+	public List<Aula> getListaAula() {
+		return listaAula;
+	}
+
+	public void setListaAula(List<Aula> listaAula) {
+		this.listaAula = listaAula;
+	}
+
 	public ListDaoAula() {
 		super();
-		this.listaAula = new ArrayList<Aula> ();
+		
 	}
 
 	public void crearAula(Aula aula) {
@@ -46,6 +60,7 @@ public class ListDaoAula implements IDaoAula {
 				 aula = listaAula.get(i);
 				
 			}
+			 i++;
 			
 		}
 		return aula;
@@ -60,6 +75,7 @@ public class ListDaoAula implements IDaoAula {
 				listaAula.set(i,aula);
 				
 			}
+			i++;
 			
 		}
 	}
